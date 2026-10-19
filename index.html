@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookFinder - Encontre seu próximo livro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="cabecalho">
+        <h1>BookFinder</h1>
+        <p>Encontre seu próximo livro favorito!</p>
+    </header>
+
+    <main class="container">
+
+        <section class="pesquisa">
+            <h2>Pesquise livros</h2>
+
+            <form id="formPesquisa">
+                <label for="titulo">Título do livro</label>
+                <input
+                    type="text"
+                    id="titulo"
+                    placeholder="Ex.: Harry Potter"
+
+                ><label for="autor">Nome do autor</label>
+                <input
+                    type="text"
+                    id="autor"
+                    placeholder="Ex.: Machado de Assis"
+                ><label for="assunto">Assunto do livro</label>
+                <input
+                    type="text"
+                    id="assunto"
+                    placeholder="Ex.: programação"
+>
+
+                <button type="submit">Pesquisar livros</button>
+            </form>
+        </section>
+
+        <section class="resultados">
+            <h2>Resultados da pesquisa</h2>
+
+            <p id="mensagem">
+                Digite um título ou autor para começar sua pesquisa.
+            </p>
+
+            <div id="listaLivros" class="lista-livros"></div>
+        </section>
+
+    </main>
+
+    <footer class="rodape">
+        <p>Acadêmica: Sandriléia Canei</p>
+        <p>Disciplina: Fundamentos ao Desenvolvimento Web</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

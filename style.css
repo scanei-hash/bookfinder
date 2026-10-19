@@ -1,0 +1,174 @@
+/* Configurações gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f1eb;
+    color: #2d3436;
+    line-height: 1.6;
+}
+
+/* Cabeçalho */
+.cabecalho {
+    background-color: #244c3c;
+    color: white;
+    text-align: center;
+    padding: 35px 20px;
+}
+
+.cabecalho h1 {
+    font-size: 2.5rem;
+    margin-bottom: 8px;
+}
+
+.cabecalho p {
+    font-size: 1.1rem;
+}
+
+/* Conteúdo principal */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+/* Área de pesquisa */
+.pesquisa {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+}
+
+.pesquisa h2,
+.resultados h2 {
+    color: #244c3c;
+    margin-bottom: 20px;
+}
+
+#formPesquisa {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#formPesquisa label {
+    font-weight: bold;
+}
+
+#formPesquisa input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #c9cec9;
+    border-radius: 6px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+#formPesquisa input:focus {
+    outline: 2px solid #6e9f80;
+    border-color: #244c3c;
+}
+
+#formPesquisa button {
+    background-color: #d68b45;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 13px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#formPesquisa button:hover {
+    background-color: #b86e2e;
+}
+
+/* Resultados */
+.resultados {
+    margin-bottom: 35px;
+}
+
+#mensagem {
+    margin-bottom: 20px;
+    color: #555f59;
+}
+
+.lista-livros {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+/* Cartões dos livros */
+.livro {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
+    overflow-wrap: anywhere;
+}
+
+.livro h3 {
+    color: #244c3c;
+    margin-bottom: 10px;
+}
+
+.livro p {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.livro button {
+    margin-top: 10px;
+    padding: 10px 14px;
+    background-color: #244c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.livro button:hover {
+    background-color: #376c54;
+}
+
+/* Rodapé */
+.rodape {
+    background-color: #20382e;
+    color: white;
+    text-align: center;
+    padding: 22px 15px;
+    font-size: 0.9rem;
+}
+
+/* Adaptação para telas pequenas */
+@media (max-width: 600px) {
+    .cabecalho {
+        padding: 25px 15px;
+    }
+
+    .cabecalho h1 {
+        font-size: 2rem;
+    }
+
+    .container {
+        width: 92%;
+        margin: 20px auto;
+    }
+
+    .pesquisa {
+        padding: 18px;
+    }
+
+    .lista-livros {
+        grid-template-columns: 1fr;
+    }
+}
