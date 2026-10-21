@@ -1,3 +1,5 @@
+const MATRICULA = "469390";
+const API_LOGS = "https://www.piway.com.br/unoesc/api";
 const formPesquisa = document.getElementById("formPesquisa");
 const campoTitulo = document.getElementById("titulo");
 const campoAutor = document.getElementById("autor");
@@ -177,4 +179,78 @@ async function consultarDetalhes(chave, cartao) {
 
         console.error("Erro nos detalhes:", erro);
     }
+    async function registrarLog(metodo, resultado) {
+    const api = "OpenLibrary";
+
+    const url =
+        `${API_LOGS}/inserir/log/` +
+        `${encodeURIComponent(MATRICULA)}/` +
+        `${encodeURIComponent(api)}/` +
+        `${encodeURIComponent(metodo)}/` +
+        `${encodeURIComponent(resultado)}`;
+
+    try {
+        const resposta = await fetch(url);
+        const dados = await resposta.json();
+
+        console.log("Resposta do registro de log:", dados);
+    } catch (erro) {
+        console.error("Erro ao registrar log:", erro);
+    }
+}
+async function listarLogs() {
+    const mensagem = document.getElementById("mensagemLogs");
+    const lista = document.getElementById("listaLogs");
+
+    mensagem.textContent = "Carregando logs...";
+    lista.innerHTML = "";
+
+    try {
+        const resposta = await fetch(
+            `${API_LOGS}/logs/${encodeURIComponent(MATRICULA)}`
+        );
+
+        const dados = await resposta.json();
+
+        if (!resposta.ok) {
+            throw new Error("Não foi possível consultar os logs.");
+        }
+
+        if (!Array.isArray(dados)) {
+            mensagem.textContent =
+                typeof dados === "string"
+                    ? dados
+                    : "Não foi possível exibir os logs.";
+            return;
+        }
+
+        if (dados.length === 0) {
+            mensagem.textContent = "Nenhum log registrado.";
+            return;
+        }
+
+        mensagem.textContent = `${dados.length} log(s) encontrado(s).`;
+
+        dados.forEach((log) => {
+            const cartao = document.createElement("article");
+            cartao.className = "livro-card";
+
+            cartao.innerHTML = `
+                <h3>Log registrado</h3>
+                <p>${JSON.stringify(log)}</p>
+            `;
+
+            lista.appendChild(cartao);
+        });
+    } catch (erro) {
+        mensagem.textContent =
+            "Erro ao consultar os logs. Verifique a matrícula e a conexão.";
+        console.error("Erro ao listar logs:", erro);
+    }
+}
+
+document
+    .getElementById("btnListarLogs")
+    .addEventListener("click", listarLogs);
+
 }
