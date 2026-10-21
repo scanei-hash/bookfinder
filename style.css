@@ -171,4 +171,19 @@ body {
     .lista-livros {
         grid-template-columns: 1fr;
     }
+    #btnListarLogs,
+.btnExcluirLog {
+    background-color: #244c3c;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin: 8px 0;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+#btnListarLogs:hover {
+    background-color: #376c54;
+}
 }
